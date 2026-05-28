@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Best Friend Surprise 💖</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffd6e8, #ffc0cb, #ffe6f0);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 15px 90px;
+      position: relative;
+    }
+
+    .active {
+      display: flex;
+    }
+
+    .friend-box {
+      width: 100%;
+      max-width: 700px;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 25px;
+      padding: 22px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      color: #ff0066;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+
+    p {
+      color: #333;
+      font-size: clamp(0.95rem, 2.8vw, 1.2rem);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    img {
+      width: min(220px, 75vw);
+      height: min(220px, 75vw);
+      object-fit: cover;
+      border-radius: 22px;
+      margin: 18px 0;
+      border: 5px solid white;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    button {
+      width: 100%;
+      max-width: 320px;
+      padding: 15px;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(45deg, #ff4d88, #ff0066);
+      color: white;
+      font-size: clamp(15px, 2vw, 18px);
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 5px 15px rgba(255, 0, 102, 0.3);
+    }
+
+    button:hover {
+      transform: scale(1.04);
+    }
+
+    .emoji {
+      font-size: clamp(55px, 10vw, 85px);
+      margin-bottom: 10px;
+    }
+
+    .final-text {
+      color: #ff0066;
+      font-size: clamp(1.4rem, 5vw, 2rem);
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .floating span {
+      position: absolute;
+      bottom: -50px;
+      font-size: 25px;
+      animation: float 8s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+
+      30% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    audio {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      width: min(250px, 92vw);
+      z-index: 999;
+    }
+
+    /* Mobile Fixes */
+    @media (max-width: 480px) {
+
+      .page {
+        padding: 15px 12px 110px;
+      }
+
+      .friend-box {
+        padding: 18px;
+        border-radius: 20px;
+      }
+
+      button {
+        padding: 14px;
+      }
+
+      img {
+        width: 180px;
+        height: 180px;
+      }
+    }
+
+    /* Small Height Devices */
+    @media (max-height: 700px) {
+
+      img {
+        width: 180px;
+        height: 220px;
+      }
+
+      p {
+        line-height: 1.6;
+      }
+
+      .friend-box {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Floating Emojis -->
+  <div class="floating">
+    <span style="left:5%; animation-delay:0s;">💖</span>
+    <span style="left:15%; animation-delay:2s;">🐱</span>
+    <span style="left:25%; animation-delay:4s;">✨</span>
+    <span style="left:35%; animation-delay:1s;">🌸</span>
+    <span style="left:45%; animation-delay:3s;">💕</span>
+    <span style="left:55%; animation-delay:5s;">🎀</span>
+    <span style="left:65%; animation-delay:2s;">💗</span>
+    <span style="left:75%; animation-delay:4s;">😊</span>
+    <span style="left:85%; animation-delay:1s;">🌈</span>
+  </div>
+
+  <!-- PAGE 1 -->
+  <div class="page active" id="page1">
+
+    <div class="friend-box">
+
+      <img src="WhatsApp Image 2026-05-27 at 5.23.26 PM.jpeg" alt="Shelly">
+
+      <h1>Hey Shelly 👋💖</h1>
+
+      <p>
+        A cute little surprise for the sweetest and most amazing friend 🌸✨
+      </p>
+
+      <button onclick="nextPage(1)">Open Surprise 🎁</button>
+
+    </div>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="page" id="page2">
+
+    <div class="friend-box">
+
+      <h1>You Are Amazing 🌸</h1>
+
+      <img
+        src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzllNjdjaWdjMG8wOG03bjRrZHk3ejhjcm80cXd1cGtwb2YyYW5lOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FH0EiKkU2vjPHZ5op1/giphy.gif"
+        alt="cute cat">
+
+      <p>
+        Friends like you make life happier and brighter 💕 <br><br>
+
+        Thank you for always being supportive,
+        caring and genuinely awesome ✨
+      </p>
+
+      <button onclick="nextPage(2)">Next 💫</button>
+
+    </div>
+  </div>
+
+  <!-- PAGE 3 -->
+  <div class="page" id="page3">
+
+    <div class="friend-box">
+
+      <h1>Best Friend Forever 💗</h1>
+
+      <img src="https://media.tenor.com/U4pZZGpeZJIAAAAM/meow-cute.gif" alt="cute cat">
+
+      <p>
+        Every moment with you is full of happiness 🌸 <br><br>
+
+        Your smile spreads positivity 😊 <br>
+        Your friendship means a lot 💖
+      </p>
+
+      <button onclick="nextPage(3)">One Last Message 🎀</button>
+
+    </div>
+  </div>
+
+  <!-- PAGE 4 -->
+  <div class="page" id="page4">
+
+    <div class="friend-box">
+
+      <div class="emoji">🐱</div>
+
+      <h1>Stay Happy Always 💕</h1>
+
+      <img src="https://i.pinimg.com/originals/82/b3/9c/82b39c323ca376e9bb5844a54973fc42.gif" alt="cute cat">
+
+      <p>
+        Keep smiling and keep shining ✨<br><br>
+
+        Life becomes more beautiful with a friend like you 💖
+      </p>
+
+      <div class="final-text">
+        Forever Grateful For Your Friendship 🌸💗
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MUSIC -->
+  <audio autoplay loop controls>
+    <source src="https://cdn.pixabay.com/audio/2025/03/09/audio_6f6f69c6cb.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+
+    document.addEventListener("click", function () {
+      document.querySelector("audio").play();
+    });
+
+    function nextPage(current) {
+
+      document.getElementById("page" + current).classList.remove("active");
+
+      document.getElementById("page" + (current + 1)).classList.add("active");
+
+      window.scrollTo(0, 0);
+    }
+
+  </script>
+
+</body>
+
+</html>
