@@ -288,8 +288,8 @@
   </div>
 
   <!-- MUSIC -->
-  <audio autoplay loop controls>
-    <source src="https://cdn.pixabay.com/audio/2025/03/09/audio_6f6f69c6cb.mp3" type="audio/mp3">
+  <audio id="bgMusic" loop>
+    <source src="starostin-happy-birthday-357371.mp3" type="audio/mp3">
   </audio>
 
   <script>
@@ -306,6 +306,20 @@
 
       window.scrollTo(0, 0);
     }
+
+    const music = document.getElementById("bgMusic");
+
+    // Try autoplay
+    window.addEventListener("load", () => {
+      music.play().catch(() => {
+        console.log("Autoplay blocked by browser");
+      });
+    });
+
+    // Play on first click anywhere
+    document.addEventListener("click", () => {
+      music.play();
+    }, { once: true });
 
   </script>
 
